@@ -18,8 +18,18 @@
     }
   </style>
   <script>
+    <?php 
+        $platformUrl = get_option('coveo_platform_url');
+        $organizationId = get_option('coveo_organization_id');
+        $apiKey = get_option('coveo_api_key');
+    ?>
+
     document.addEventListener("DOMContentLoaded", function () {
-      Coveo.SearchEndpoint.configureSampleEndpointV2();
+        Coveo.SearchEndpoint.endpoints["default"] = new Coveo.SearchEndpoint({
+            accessToken: '<?php echo $apiKey ?>',
+            restUri: '<?php echo $platformUrl ?>' + "/rest/search",
+            queryStringArguments: { organizationId: '<?php echo $organizationId ?>' }
+        });
       Coveo.init(document.getElementById('search'));
     })
   </script>
@@ -73,3 +83,6 @@
     </div>
   </div>
 </div>
+
+<?php
+get_footer();

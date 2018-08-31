@@ -12,6 +12,12 @@ Copy these files under `wp-content/plugins/coveo` in your wordpress site.
 2. Click **Plugins** into the menu on the left.
 3. Under **Coveo for Wordpress**, click **Activate**.
 
+## Configuring
+
+1. Navigate to **Settings** > **Coveo Settings**.
+2. Set your **Organization ID**.
+3. Set your **API Key** (API Key with **Execute Queries** privilege only).
+
 ## Adding a Coveo Search Page
 
 1. Log into the Wordpress admin.

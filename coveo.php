@@ -4,6 +4,8 @@ Plugin Name: Coveo for Wordpress
 Credit to WPExplorer for the base code: https://www.wpexplorer.com/wordpress-page-templates-plugin/
 */
 
+require 'coveo-settings.php';
+
 
 class PageTemplater {
 
@@ -156,3 +158,21 @@ class PageTemplater {
 
 } 
 add_action( 'plugins_loaded', array( 'PageTemplater', 'get_instance' ) );
+
+// Adds settings
+function coveo_register_settings() {
+    add_option('coveo_platform_url', 'https://platform.cloud.coveo.com');
+    register_setting( 'coveo_options_group', 'coveo_platform_url', 'coveo_callback' );
+    add_option('coveo_organization_id', '');
+    register_setting( 'coveo_options_group', 'coveo_organization_id', 'coveo_callback' );
+    add_option('coveo_api_key', '');
+    register_setting( 'coveo_options_group', 'coveo_api_key', 'coveo_callback' );
+}
+add_action( 'admin_init', 'coveo_register_settings' );
+
+// Adds option page
+function coveo_register_options_page() {
+    add_options_page('Coveo Settings', 'Coveo Settings', 'manage_options', 'coveo', 'coveo_options_page');
+}
+
+add_action('admin_menu', 'coveo_register_options_page');
