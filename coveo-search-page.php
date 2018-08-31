@@ -3,27 +3,28 @@
  * Template Name: Good to Be Bad
  * Description: A Page Template with a darker design.
  */ ?>
+
+<?php 
+  $platformUrl = get_option('coveo_platform_url', 'https://platform.cloud.coveo.com');
+  $organizationId = get_option('coveo_organization_id');
+  $apiKey = get_option('coveo_api_key');
+  $uiVersion = get_option('coveo_ui_version', '2.4609');
+?>
 <!DOCTYPE html>
 <head>
   <meta about="Search all content at once." />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, height=device-height">
-  <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v2.4609/css/CoveoFullSearch.css" />
-  <script class="coveo-script" src="https://static.cloud.coveo.com/searchui/v2.4609/js/CoveoJsSearch.Lazy.js"></script>
-  <script src="https://static.cloud.coveo.com/searchui/v2.4609/js/templates/templates.js"></script>
+  <link rel="stylesheet" href="https://static.cloud.coveo.com/searchui/v<?php echo $uiVersion ?>/css/CoveoFullSearch.css" />
+  <script class="coveo-script" src="https://static.cloud.coveo.com/searchui/v<?php echo $uiVersion ?>/js/CoveoJsSearch.Lazy.js"></script>
+  <script src="https://static.cloud.coveo.com/searchui/v<?php echo $uiVersion ?>/js/templates/templates.js"></script>
   <style>
     .site-content {
         padding-top: 0 !important;
     }
   </style>
   <script>
-    <?php 
-        $platformUrl = get_option('coveo_platform_url');
-        $organizationId = get_option('coveo_organization_id');
-        $apiKey = get_option('coveo_api_key');
-    ?>
-
     document.addEventListener("DOMContentLoaded", function () {
         Coveo.SearchEndpoint.endpoints["default"] = new Coveo.SearchEndpoint({
             accessToken: '<?php echo $apiKey ?>',

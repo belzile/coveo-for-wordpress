@@ -20,6 +20,10 @@
                 <th scope="row"><label for="coveo_api_key">API Key</label></th>
                 <td><input class="regular-text" type="text" id="coveo_api_key" name="coveo_api_key" value="<?php echo get_option('coveo_api_key'); ?>" /></td>
             </tr>
+            <tr>
+                <th scope="row"><label for="coveo_ui_version">Search UI version</label></th>
+                <td><input class="regular-text" type="text" id="coveo_ui_version" name="coveo_ui_version" value="<?php echo get_option('coveo_ui_version'); ?>" /></td>
+            </tr>
         </table>
         <?php  submit_button(); ?>
     </form>

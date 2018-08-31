@@ -166,7 +166,9 @@ function coveo_register_settings() {
     add_option('coveo_organization_id', '');
     register_setting( 'coveo_options_group', 'coveo_organization_id', 'coveo_callback' );
     add_option('coveo_api_key', '');
-    register_setting( 'coveo_options_group', 'coveo_api_key', 'coveo_callback' );
+	register_setting( 'coveo_options_group', 'coveo_api_key', 'coveo_callback' );
+	add_option('coveo_ui_version', '2.4609');
+    register_setting( 'coveo_options_group', 'coveo_ui_version', 'coveo_callback' );
 }
 add_action( 'admin_init', 'coveo_register_settings' );
 
